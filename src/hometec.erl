@@ -11,7 +11,7 @@
          handle_cast/2,
          handle_info/2]).
 
--define(PERIOD, 10000).
+-define(PERIOD, 1000).
 
 start_link() ->
   gen_server:start_link(?MODULE, [], []).
@@ -24,7 +24,7 @@ handle_call(_, _, N) -> {noreply, N}.
 handle_cast(_, N) -> {noreply, N}.
 
 handle_info(timeout, N) ->
-  ok = error_logger:info_msg("Hello~n"),
+  ok = error_logger:info_msg("Hometec~n"),
   {noreply, N + 1, ?PERIOD}.
 
 code_change(_, N, _) -> {ok, N}.
